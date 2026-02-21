@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Contact</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <th>First</th>
+            <td>{{ contact.first }}</td>
+        </tr>
+        <tr>
+            <th>Last</th>
+            <td>{{ contact.last }}</td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td>{{ contact.phone }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ contact.email }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>
+    <a href="/contacts/{{ contact.id }}/edit">Edit</a>
+    <a href="/contacts">Back</a>
+</p>
+
+{% endblock %}

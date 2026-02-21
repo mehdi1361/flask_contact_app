@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Contacts App</title>
+    <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin: 40px;
+            color: #222;
+        }
+
+        h1 {
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin-top: 4px;
+            color: #555;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .tool-bar {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-right: 8px;
+            font-weight: 500;
+        }
+
+        input[type="search"] {
+            padding: 6px;
+            font-size: 14px;
+            width: 240px;
+        }
+
+        button,
+        input[type="submit"] {
+            padding: 6px 12px;
+            margin-left: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead th {
+            text-align: left;
+            border-bottom: 2px solid #000;
+            padding-bottom: 6px;
+        }
+
+        tbody td {
+            padding: 8px 4px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        a {
+            color: #0a7;
+            text-decoration: none;
+            margin-right: 8px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p a {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1>CONTACTS.APP</h1>
+<p>A Demo Contacts Application</p>
+
+<hr>
+
+<form action="/contacts" method="get" class="tool-bar">
+    <label for="search">Search Term</label>
+    <input
+        id="search"
+        type="search"
+        name="q"
+        value="{{ request.args.get('q', '') }}"
+    >
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.first }}</td>
+            <td>{{ contact.last }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.email }}</td>
+            <td>
+                <a href="/contacts/{{ contact.id }}/edit">Edit</a>
+                <a href="/contacts/{{ contact.id }}">View</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">No contacts found.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>
+    <a href="/contacts/new">Add Contact</a>
+    <button hx-get="/" hx-target='#main'>back to main</button>
+</p>
+
+{% endblock %}
