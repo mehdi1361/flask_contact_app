@@ -84,11 +84,32 @@
         p a {
             font-weight: 500;
         }
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            z-index: 1000;
+        }
+
+        .modal {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 1rem;
+            min-width: 300px;
+            border-radius: 6px;
+            z-index: 1001;
+        }
     </style>
 </head>
 <body>
+    <main id="main">
+        {% block content %}{% endblock %}
+    </main>
 
-{% block content %}{% endblock %}
-
+    <!-- modal root -->
+    <div id="modal"></div>
 </body>
 </html>

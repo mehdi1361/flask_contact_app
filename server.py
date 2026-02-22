@@ -105,7 +105,23 @@ def new_contact():
         )
 
         repo.save(contact)
-        return redirect(url_for("list_contacts"))
+
+        contacts = repo.list_active()
+        view_contacts = [
+            {
+                "id": c.contact_id,
+                "first": c.name.split()[0],
+                "last": " ".join(c.name.split()[1:]),
+                "phone": str(c.phone),
+                "email": str(c.email),
+            }
+            for c in contacts
+        ]
+
+        return render_template(
+            "contact.html",
+            contacts=view_contacts,
+        )
 
     return render_template("contact_new.html")
 

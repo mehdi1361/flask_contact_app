@@ -1,7 +1,9 @@
-{% extends "layout.html" %}
 
-{% block content %}
+<div class="modal-backdrop"
+     hx-on="click: document.getElementById('modal').innerHTML=''">
+</div>
 
+<div class="modal">
 <h1>Edit Contact</h1>
 
 <form method="post">
@@ -30,5 +32,5 @@
         <a href="/contacts">Cancel</a>
     </p>
 </form>
+</div>
 
-{% endblock %}

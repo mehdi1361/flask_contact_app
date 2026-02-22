@@ -2,12 +2,10 @@
 
 
 {% block content %}
-    <div id='main'> 
-        <h1>CONTACTS.APP</h1>
-        <p>A Demo Contacts Application</p>
-        <hr>
-        <button hx-get='/contacts' hx-target='#main' hx-swap='outterHTML' hx-trigger='click, keyup'> 
-            Get The Contacts
-        </button>
-    </div>
+    <h1>CONTACTS.APP</h1>
+    <p>A Demo Contacts Application</p>
+    <hr>
+    <button hx-get='/contacts' hx-target='#main' hx-swap='outterHTML' hx-trigger='click, keyup'> 
+        Get The Contacts
+    </button>
 {% endblock %}

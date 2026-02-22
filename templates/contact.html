@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<h1>CONTACTS.APP</h1>
-<p>A Demo Contacts Application</p>
+<!-- <h1>CONTACTS.APP</h1>
+     <p>A Demo Contacts Application</p> -->
 
 <hr>
 
@@ -36,7 +36,14 @@
             <td>{{ contact.phone }}</td>
             <td>{{ contact.email }}</td>
             <td>
-                <a href="/contacts/{{ contact.id }}/edit">Edit</a>
+                <a
+                    href="/contacts/{{ contact.id }}/edit"
+                    hx-get="/contacts/{{ contact.id }}/edit"
+                    hx-target="#modal"
+                    hx-swap="innerHTML"
+                >
+                    Edit
+                </a>
                 <a href="/contacts/{{ contact.id }}">View</a>
             </td>
         </tr>
@@ -49,7 +56,14 @@
 </table>
 
 <p>
-    <a href="/contacts/new">Add Contact</a>
+    <a
+        href="/contacts/new"
+        hx-get="/contacts/new"
+        hx-target="#modal"
+        hx-swap="innerHTML"
+    >
+        Add Contact
+    </a>
     <button hx-get="/" hx-target='#main'>back to main</button>
 </p>
 

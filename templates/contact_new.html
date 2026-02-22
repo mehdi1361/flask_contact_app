@@ -1,34 +1,39 @@
-{% extends "layout.html" %}
+<div class="modal-backdrop"
+     hx-on="click: document.getElementById('modal').innerHTML=''">
+</div>
 
-{% block content %}
+<div class="modal">
+    <h2>New Contact</h2>
 
-<h1>New Contact</h1>
+    <form hx-post="/contacts/new"
+          hx-target="#main"
+          hx-swap="innerHTML"
+          hx-on="htmx:afterRequest: document.getElementById('modal').innerHTML=''">
+        <p>
+            <label>First</label><br>
+            <input type="text" name="first" required>
+        </p>
 
-<form method="post">
-    <p>
-        <label>First</label><br>
-        <input type="text" name="first">
-    </p>
+        <p>
+            <label>Last</label><br>
+            <input type="text" name="last">
+        </p>
 
-    <p>
-        <label>Last</label><br>
-        <input type="text" name="last">
-    </p>
+        <p>
+            <label>Phone</label><br>
+            <input type="text" name="phone">
+        </p>
 
-    <p>
-        <label>Phone</label><br>
-        <input type="text" name="phone">
-    </p>
+        <p>
+            <label>Email</label><br>
+            <input type="email" name="email" required>
+        </p>
 
-    <p>
-        <label>Email</label><br>
-        <input type="email" name="email">
-    </p>
-
-    <p>
-        <button type="submit">Create</button>
-        <a href="/contacts">Cancel</a>
-    </p>
-</form>
-
-{% endblock %}
+        <p>
+            <button type="submit">Create</button>
+            <button type="button" onclick="document.getElementById('modal').innerHTML=''">
+                Cancel
+            </button>
+        </p>
+    </form>
+</div>
